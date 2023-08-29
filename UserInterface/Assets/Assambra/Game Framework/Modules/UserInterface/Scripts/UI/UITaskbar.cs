@@ -5,7 +5,7 @@ using UnityEngine;
 public class UITaskbar : MonoBehaviour
 {
     [SerializeField] private GameObject UIGameMenu = null;
-    [SerializeField] private GameObject gameObjectUITaskbar = null;
+    //[SerializeField] private GameObject gameObjectUITaskbar = null;
     [SerializeField] private GameObject gameObjectTaskbarCenter = null;
     
     public List<UITaskbarItemCenter> ListTaskbarItemsCenter = new List<UITaskbarItemCenter>();
@@ -19,7 +19,7 @@ public class UITaskbar : MonoBehaviour
         }
     }
     
-    public void ButtonGameMenuFunction()
+    public void OnButtonGameMenu()
     {
         UIGameMenu.SetActive(!UIGameMenu.activeSelf);
     }

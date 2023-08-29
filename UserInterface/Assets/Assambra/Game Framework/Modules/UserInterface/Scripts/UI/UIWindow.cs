@@ -63,9 +63,9 @@ public class UIWindow : MonoBehaviour
 
     private void Awake()
     {
-        gameObjectUITaskbar = UISystem.Instance.gameObjectUITaskbar;
-        gameObjectUITaskbarCenter = UISystem.Instance.gameObjectUITaskbarCenter;
-        gameObjectUIGameMenuRight = UISystem.Instance.gameObjectUIGameMenuRight;
+        gameObjectUITaskbar = UserInterface.Instance.gameObjectUITaskbar;
+        gameObjectUITaskbarCenter = UserInterface.Instance.gameObjectUITaskbarCenter;
+        gameObjectUIGameMenuRight = UserInterface.Instance.gameObjectUIGameMenuRight;
 
         rectTransformUIWindow = gameObjectUIWindow.GetComponent<RectTransform>();
         transformTaskbarCenter = gameObjectUITaskbarCenter.transform;

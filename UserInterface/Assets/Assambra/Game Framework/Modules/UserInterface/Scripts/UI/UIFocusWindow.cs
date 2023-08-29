@@ -3,16 +3,16 @@ using UnityEngine.EventSystems;
 
 public class UIFocusWindow : MonoBehaviour, IPointerDownHandler
 {
-    [SerializeField] private UISystem uISystem = null;
+    [SerializeField] private UserInterface userInterface = null;
     [SerializeField] private RectTransform rectTransformWindow = null;
 
     private void Start()
     {
-        uISystem = UISystem.Instance;
+        userInterface = UserInterface.Instance;
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        rectTransformWindow.SetSiblingIndex(uISystem.CountUIElements-1);
+        rectTransformWindow.SetSiblingIndex(userInterface.CountUIElements-1);
     }
 }

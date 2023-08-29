@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class UISystem : MonoBehaviour
+public class UserInterface : MonoBehaviour
 {
     // Public
-    public static UISystem Instance { get; private set; }
+    public static UserInterface Instance { get; private set; }
     public int CountUIElements { get; private set; }
 
     [Header("Windows")]
