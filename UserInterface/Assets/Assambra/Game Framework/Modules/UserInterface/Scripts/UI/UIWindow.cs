@@ -107,6 +107,7 @@ public class UIWindow : MonoBehaviour
         windowIcon = settings.windowIcon;
         IgnoreWindowMaxSize = settings.IgnoreWindowMaxSize;
         WindowMinSize = settings.WindowMinsize;
+        rectTransformUIWindow.sizeDelta = WindowMinSize;
         WindowMaxSize = settings.WindowMaxSize;
         windowStartActivated = settings.windowStartActivated;
         windowHasCloseButton = settings.windowHasCloseButton;
