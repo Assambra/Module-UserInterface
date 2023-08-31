@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class UIGameMenuItemRight : MonoBehaviour
+public class GameMenuItemRight : MonoBehaviour
 {
     [SerializeField] private TMP_Text TextGameMenuItemName = null;
     [SerializeField] private Image ImageGameMenuItem = null;

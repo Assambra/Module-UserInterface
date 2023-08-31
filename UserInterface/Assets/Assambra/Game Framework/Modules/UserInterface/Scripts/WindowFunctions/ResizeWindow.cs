@@ -2,7 +2,7 @@
 using UnityEngine.EventSystems;
 using Helper;
 
-public class UIResizeWindow : MonoBehaviour, IPointerDownHandler,  IPointerUpHandler, IDragHandler
+public class ResizeWindow : MonoBehaviour, IPointerDownHandler,  IPointerUpHandler, IDragHandler
 {
 	[Header("References")]
 	[SerializeField] private GameObject gameObjectUIWindow = null;

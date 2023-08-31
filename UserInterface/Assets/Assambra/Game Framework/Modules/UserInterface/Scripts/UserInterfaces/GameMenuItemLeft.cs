@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-public class UIGameMenuItemLeft : MonoBehaviour
+public class GameMenuItemLeft : MonoBehaviour
 {
     [SerializeField] private Button buttonGameMenuLeft = null;
     [SerializeField] private Sprite spriteButtonGameMenuLeft= null;

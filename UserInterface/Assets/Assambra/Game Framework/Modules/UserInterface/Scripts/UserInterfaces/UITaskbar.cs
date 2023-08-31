@@ -8,12 +8,12 @@ public class UITaskbar : MonoBehaviour
     //[SerializeField] private GameObject gameObjectUITaskbar = null;
     [SerializeField] private GameObject gameObjectTaskbarCenter = null;
     
-    public List<UITaskbarItemCenter> ListTaskbarItemsCenter = new List<UITaskbarItemCenter>();
+    public List<TaskbarItemCenter> ListTaskbarItemsCenter = new List<TaskbarItemCenter>();
 
     public void CreateListTaskbarItemsCenter()
     {
         ListTaskbarItemsCenter.Clear();
-        foreach (UITaskbarItemCenter tc in gameObjectTaskbarCenter.GetComponentsInChildren<UITaskbarItemCenter>())
+        foreach (TaskbarItemCenter tc in gameObjectTaskbarCenter.GetComponentsInChildren<TaskbarItemCenter>())
         {
             ListTaskbarItemsCenter.Add(tc);
         }

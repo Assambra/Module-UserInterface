@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Assambra/Demo/UserInterface/Scenes/UserInterfaceDemo.unity
+    guid: 9ff3cc07499429743827df9911bb6a10
   m_configObjects: {}

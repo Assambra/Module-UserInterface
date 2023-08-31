@@ -16,7 +16,7 @@ MonoBehaviour:
   windowName: Inventory
   windowIcon: {fileID: 21300000, guid: 58e06984b197c9148856cb7db34a380e, type: 3}
   IgnoreWindowMaxSize: 1
-  WindowMinsize: {x: 250, y: 250}
+  WindowMinsize: {x: 100, y: 200}
   WindowMaxSize: {x: 500, y: 500}
   windowStartActivated: 1
   windowHasCloseButton: 1

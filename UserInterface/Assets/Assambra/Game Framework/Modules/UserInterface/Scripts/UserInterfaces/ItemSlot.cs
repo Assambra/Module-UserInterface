@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIItemSlot : MonoBehaviour
+public class ItemSlot : MonoBehaviour
 {
     public int SlotID;
     public bool IsEmpty = true;

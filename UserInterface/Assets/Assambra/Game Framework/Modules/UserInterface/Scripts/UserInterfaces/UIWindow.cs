@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
+using System.Collections.Generic;
 
 public class UIWindow : MonoBehaviour
 {
@@ -10,6 +10,15 @@ public class UIWindow : MonoBehaviour
     [Header("Window")]
     [SerializeField] private string windowName;
     [SerializeField] private Sprite windowIcon;
+
+    [Header("Top Border")]
+    [SerializeField] public RectTransform topBorderLeft;
+    [SerializeField] public RectTransform topBorderRight;
+
+    [Header("Tab")]
+    [SerializeField] private GameObject prefabTabObject;
+    [SerializeField] private Transform tabHome;
+    [SerializeField] private List<GameObject> tabs = new List<GameObject>();
 
     [Header("Serialize Fields GameObjects")]
     [SerializeField] private GameObject gameObjectUIWindow = null;
@@ -22,9 +31,6 @@ public class UIWindow : MonoBehaviour
     [SerializeField] private GameObject buttonDecreaseWindow = null;
     [SerializeField] private GameObject buttonMaximizeWindow = null;
     [SerializeField] private GameObject buttonMinimizeWindow = null;
-    
-    [Header("Window Text Name")]
-    [SerializeField] private TMP_Text textWindowName = null;
 
     [Header("Window Image Symbol")]
     [SerializeField] private Image imageWindowSymbol = null;
@@ -63,9 +69,9 @@ public class UIWindow : MonoBehaviour
 
     private void Awake()
     {
-        gameObjectUITaskbar = UserInterface.Instance.gameObjectUITaskbar;
-        gameObjectUITaskbarCenter = UserInterface.Instance.gameObjectUITaskbarCenter;
-        gameObjectUIGameMenuRight = UserInterface.Instance.gameObjectUIGameMenuRight;
+        gameObjectUITaskbar = UserInterface.Instance.UITaskbar;
+        gameObjectUITaskbarCenter = UserInterface.Instance.TaskbarCenter;
+        gameObjectUIGameMenuRight = UserInterface.Instance.GameMenuRight;
 
         rectTransformUIWindow = gameObjectUIWindow.GetComponent<RectTransform>();
         transformTaskbarCenter = gameObjectUITaskbarCenter.transform;
@@ -76,8 +82,9 @@ public class UIWindow : MonoBehaviour
     {
         ApplyWindowSettings();
 
-        textWindowName.text = windowName;
         imageWindowSymbol.sprite = windowIcon;
+        
+        InstantiateTab();
 
         WindowSizeCheck();
 
@@ -112,6 +119,18 @@ public class UIWindow : MonoBehaviour
         windowStartActivated = settings.windowStartActivated;
         windowHasCloseButton = settings.windowHasCloseButton;
         windowHasResizeButtons = settings.windowHasResizeButtons;
+    }
+
+    private void InstantiateTab()
+    {
+        GameObject tab = GameObject.Instantiate(prefabTabObject, tabHome);
+        tabs.Add(tab);
+        tab.name = settings.windowName;
+        TabObject to = tab.GetComponent<TabObject>();
+        to.SetTabName(settings.windowName);
+        to.window = this;
+        to.topBorderLeft = topBorderLeft;
+        to.topBorderRight = topBorderRight;
     }
 
     public void ButtonCloseWindowFunction()
@@ -296,7 +315,7 @@ public class UIWindow : MonoBehaviour
     private void CreateTaskBarItemCenter()
     {
         instanceTaskbarItemCenter = Helper.Instantiate.InstantiateUIElement(prefabTaskbarItemCenter, transformTaskbarCenter);
-        UITaskbarItemCenter tic = instanceTaskbarItemCenter.GetComponent<UITaskbarItemCenter>();
+        TaskbarItemCenter tic = instanceTaskbarItemCenter.GetComponent<TaskbarItemCenter>();
         tic.GameObjectToSetActive = gameObject;
         tic.SpriteButtonSymbol = windowIcon;
     }
@@ -304,7 +323,7 @@ public class UIWindow : MonoBehaviour
     private void CreateGameMenuItemRight()
     {
         instancedGameMenuItemRight = Helper.Instantiate.InstantiateUIElement(prefabGameMenuItemRight, transformGameMenuRight);
-        UIGameMenuItemRight gmir = instancedGameMenuItemRight.GetComponent<UIGameMenuItemRight>();
+        GameMenuItemRight gmir = instancedGameMenuItemRight.GetComponent<GameMenuItemRight>();
         gmir.GameObjectToSetActive = gameObject;
         gmir.GameMenuItemName = windowName;
         gmir.SpriteGameMenuItemSymbol = windowIcon;

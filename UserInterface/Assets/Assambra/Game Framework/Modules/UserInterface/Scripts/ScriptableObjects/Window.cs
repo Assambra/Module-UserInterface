@@ -13,7 +13,7 @@ public class Window : ScriptableObject
         window = Instantiate(prefabWindow, parent);
         window.name = settings.windowName;
 
-        UIShortcutKey uIShortcutKey = window.GetComponent<UIShortcutKey>();
+        ShortcutKey uIShortcutKey = window.GetComponent<ShortcutKey>();
         uIShortcutKey.SetWindowShortcutKey(settings.windowShortcutKey);
 
         UIWindow uIWindow = window.GetComponentInChildren<UIWindow>();

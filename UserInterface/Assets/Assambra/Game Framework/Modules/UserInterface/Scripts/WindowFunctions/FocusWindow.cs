@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UIFocusWindow : MonoBehaviour, IPointerDownHandler
+public class FocusWindow : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] private UserInterface userInterface = null;
     [SerializeField] private RectTransform rectTransformWindow = null;

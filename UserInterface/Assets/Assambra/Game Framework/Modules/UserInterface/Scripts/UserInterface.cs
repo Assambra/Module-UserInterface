@@ -11,10 +11,12 @@ public class UserInterface : MonoBehaviour
     [SerializeField] private List<Window> windows = new List<Window>();
 
     [Header("GameObject references")]
-    [SerializeField] private GameObject uIElements = null;
-    [field: SerializeField] public GameObject gameObjectUITaskbar { get; private set; }
-    [field: SerializeField] public GameObject gameObjectUITaskbarCenter { get; private set; }
-    [field: SerializeField] public GameObject gameObjectUIGameMenuRight { get; private set; }
+    [SerializeField] private GameObject elements = null;
+    [field: SerializeField] public GameObject UITaskbar { get; private set; }
+    [field: SerializeField] public GameObject TaskbarCenter { get; private set; }
+    [field: SerializeField] public GameObject GameMenuRight { get; private set; }
+    [field: SerializeField] public GameObject TemporaryObjects { get; private set; }
+
 
     // Private
     private List<Transform> listOfUIElements = new List<Transform>();
@@ -29,7 +31,7 @@ public class UserInterface : MonoBehaviour
 
         CreateWindows();
 
-        foreach (Transform uIElement in uIElements.GetComponentsInChildren<Transform>(true))
+        foreach (Transform uIElement in elements.GetComponentsInChildren<Transform>(true))
         {
             listOfUIElements.Add(uIElement);
         }
@@ -40,7 +42,7 @@ public class UserInterface : MonoBehaviour
     {
         foreach(Window window in windows)
         {
-            window.CreateWindow(uIElements.transform);
+            window.CreateWindow(elements.transform);
         }
     }
 }

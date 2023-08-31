@@ -42,7 +42,7 @@ public class UIShortcutBar : MonoBehaviour
 
                 goSlot.name = "Slot" + "[" + i1 + "]";
             
-                UIItemSlot uIItemSlot = goSlot.GetComponent<UIItemSlot>();
+                ItemSlot uIItemSlot = goSlot.GetComponent<ItemSlot>();
                 if (uIItemSlot != null)
                     uIItemSlot.SlotID = i1;
                 else

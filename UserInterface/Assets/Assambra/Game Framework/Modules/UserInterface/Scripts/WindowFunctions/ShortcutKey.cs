@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIShortcutKey : MonoBehaviour
+public class ShortcutKey : MonoBehaviour
 {
     [SerializeField] private GameObject gameObjectToSetActive = null;
     [SerializeField] private KeyCode windowShortcutKey = KeyCode.None;
