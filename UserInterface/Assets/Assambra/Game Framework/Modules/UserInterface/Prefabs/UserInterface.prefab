@@ -663,11 +663,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windows:
   - {fileID: 11400000, guid: 4012d95269054cc408746af244cab49c, type: 2}
+  - {fileID: 11400000, guid: d80ab2adb2ee94643af01a1d5587ded2, type: 2}
   elements: {fileID: 4214632779111541729}
-  <TemporaryObjects>k__BackingField: {fileID: 2177152551852870095}
   <UITaskbar>k__BackingField: {fileID: 5705569664548691661}
   <TaskbarCenter>k__BackingField: {fileID: 2788030234947649504}
   <GameMenuRight>k__BackingField: {fileID: 5643831422629185219}
+  <TemporaryObjects>k__BackingField: {fileID: 2177152551852870095}
 --- !u!1 &5643831422629185219
 GameObject:
   m_ObjectHideFlags: 0

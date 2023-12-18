@@ -1212,6 +1212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1388ad3763eb24198fa43c5e98aad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  window: {fileID: 6376472609810763446}
   uIWindow: {fileID: 6376472609810763446}
   DragRectTransform: {fileID: 2272769267772467153}
 --- !u!1 &4138947355803056855

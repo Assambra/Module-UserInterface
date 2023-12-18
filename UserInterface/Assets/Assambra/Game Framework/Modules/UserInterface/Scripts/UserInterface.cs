@@ -6,6 +6,8 @@ public class UserInterface : MonoBehaviour
     // Public
     public static UserInterface Instance { get; private set; }
     public int CountUIElements { get; private set; }
+    public bool MouseHasDragObject { get; set; }
+    public IDragObject DragObject { get; set; }
 
     [Header("Windows")]
     [SerializeField] private List<Window> windows = new List<Window>();

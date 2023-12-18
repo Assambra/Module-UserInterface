@@ -84,7 +84,7 @@ public class UIWindow : MonoBehaviour
 
         imageWindowSymbol.sprite = windowIcon;
         
-        InstantiateTab();
+        InstantiateTab(settings.windowName);
 
         WindowSizeCheck();
 
@@ -121,13 +121,13 @@ public class UIWindow : MonoBehaviour
         windowHasResizeButtons = settings.windowHasResizeButtons;
     }
 
-    private void InstantiateTab()
+    public void InstantiateTab(string name)
     {
         GameObject tab = GameObject.Instantiate(prefabTabObject, tabHome);
         tabs.Add(tab);
-        tab.name = settings.windowName;
+        tab.name = name;
         TabObject to = tab.GetComponent<TabObject>();
-        to.SetTabName(settings.windowName);
+        to.SetTabName(name);
         to.window = this;
         to.topBorderLeft = topBorderLeft;
         to.topBorderRight = topBorderRight;
@@ -292,22 +292,22 @@ public class UIWindow : MonoBehaviour
     {
         if (rectTransformUIWindow.sizeDelta.x > WindowMaxSize.x)
         {
-            Debug.LogError("WindowSize x greater then WindowMaxSize x");
+            Debug.LogWarning("WindowSize x greater then WindowMaxSize x");
             //rectTransformUIWindow.sizeDelta = new Vector2(WindowMaxSize.x, rectTransformUIWindow.sizeDelta.y);
         }
         if (rectTransformUIWindow.sizeDelta.y > WindowMaxSize.y)
         {
-            Debug.LogError("WindowSize y greater then WindowMaxSize y");
+            Debug.LogWarning("WindowSize y greater then WindowMaxSize y");
             //rectTransformUIWindow.sizeDelta = new Vector2(rectTransformUIWindow.sizeDelta.x, WindowMaxSize.y);
         }
         if (rectTransformUIWindow.sizeDelta.x < WindowMinSize.x)
         {
-            Debug.LogError("WindowSize x smaller then WindowMinSize x");
+            Debug.LogWarning("WindowSize x smaller then WindowMinSize x");
             //rectTransformUIWindow.sizeDelta = new Vector2(WindowMinSize.x, rectTransformUIWindow.sizeDelta.y);
         }
         if (rectTransformUIWindow.sizeDelta.y < WindowMinSize.y)
         {
-            Debug.LogError("WindowSize y smaller then WindowMinSize y");
+            Debug.LogWarning("WindowSize y smaller then WindowMinSize y");
             //rectTransformUIWindow.sizeDelta = new Vector2(rectTransformUIWindow.sizeDelta.x, WindowMinSize.y);
         } 
     }

@@ -42,13 +42,17 @@ public class TabDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if(eventData.button == PointerEventData.InputButton.Right && dragObject == null)
         {
+            
+
             dragObject = Instantiate(prefabTabDragObject, UserInterface.Instance.TemporaryObjects.transform);
 
+            TabDragObject tdo = dragObject.GetComponent<TabDragObject>();
+            tdo.Name = tabObject.GetTabName();
+            UserInterface.Instance.DragObject = tdo;
+            UserInterface.Instance.MouseHasDragObject = true;
+
             tabDragObjectWidth = gameObject.GetComponent<RectTransform>().sizeDelta.x;
-            //tabDragObjectHeight = gameObject.GetComponent<RectTransform>().sizeDelta.y;
-
-            dragObject.GetComponent<TabDragObject>().SetTabName(tabObject.GetTabName());
-
+            
             canvasGroups = dragObject.GetComponentsInChildren<CanvasGroup>();
             foreach (CanvasGroup canvasGroup in canvasGroups) 
             {
@@ -72,6 +76,7 @@ public class TabDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     private void DestroyTabDragObject()
     {
+        UserInterface.Instance.MouseHasDragObject = false;
         Destroy(dragObject);
     }
 }
