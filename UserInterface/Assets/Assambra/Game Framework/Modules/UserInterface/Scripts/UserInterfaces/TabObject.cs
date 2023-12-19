@@ -37,7 +37,7 @@ public class TabObject : MonoBehaviour
         parentRight = parentRectTransform.offsetMax.x;
 
         fitters = gameObject.GetComponentsInChildren<ContentSizeFitter>();
-        SetContentSizeFitterUnconstrainedd();
+        SetContentSizeFitterUnconstrained();
     }
 
     private void Start()
@@ -51,7 +51,7 @@ public class TabObject : MonoBehaviour
         windowWidth = windowRectTransform.sizeDelta.x;
 
         if (windowWidth < tabTMP_Text.preferredWidth - parentRight + parentLeft && !unconstrained)
-            SetContentSizeFitterUnconstrainedd();
+            SetContentSizeFitterUnconstrained();
         else if(windowWidth > tabTMP_Text.preferredWidth - parentRight + parentLeft && !preferred)
             SetContentSizeFitterPreferred();
 
@@ -90,7 +90,7 @@ public class TabObject : MonoBehaviour
         }
     }
 
-    private void SetContentSizeFitterUnconstrainedd()
+    private void SetContentSizeFitterUnconstrained()
     {
         unconstrained = true;
         preferred = false;
